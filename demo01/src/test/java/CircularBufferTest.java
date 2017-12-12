@@ -1,15 +1,42 @@
-import org.junit.Test;
+import org.junit.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class CircularBufferTest {
+
+    CircularBuffer buffer = new CircularBuffer();
+
+
+    @Test(expected = MyBufferOverflowException.class)
+    public void error() {
+        buffer.xxx();
+    }
+
+
+    @Before
+    public void xxxx() {
+        System.out.println("Before");
+    }
+
+    @After
+    public void yyyy() {
+        System.out.println("After");
+    }
+
+    @BeforeClass
+    public static void a() {
+        System.out.println("BeforeClass");
+    }
+
+    @AfterClass
+    public static void b() {
+        System.out.println("AfterClass");
+    }
+
 
     @Test
     public void เมื่อเพิ่มABเข้าไปและอ่านมาทั้งหมดต้องว่าง() {
         //Arrange
-        CircularBuffer buffer = new CircularBuffer();
         buffer.write("A");
         buffer.write("B");
         buffer.read();
@@ -21,7 +48,6 @@ public class CircularBufferTest {
     @Test
     public void เมื่อเพิ่มABเข้าไปแล้วอ่านมาต้องเป็นAB() {
         //Arrange
-        CircularBuffer buffer = new CircularBuffer();
         buffer.write("A");
         buffer.write("B");
         //Assert
@@ -32,7 +58,6 @@ public class CircularBufferTest {
     @Test
     public void เมื่อเพิ่มBเข้าไปแล้วอ่านมาต้องเป็นB() {
         //Arrange
-        CircularBuffer buffer = new CircularBuffer();
         buffer.write("B");
         //Act
         String actual = buffer.read();
@@ -43,7 +68,6 @@ public class CircularBufferTest {
     @Test
     public void เมื่อเพิ่มAเข้าไปแล้วอ่านมาต้องเป็นA() {
         //Arrange
-        CircularBuffer buffer = new CircularBuffer();
         buffer.write("A");
         //Act
         String actual = buffer.read();
@@ -54,7 +78,6 @@ public class CircularBufferTest {
     @Test
     public void เมื่อสร้างbufferและเพิ่มAเข้าไปแล้วต้องไม่ว่าง() {
         //Arrange
-        CircularBuffer buffer = new CircularBuffer();
         buffer.write("A");
         //Act
         boolean actual = buffer.isEmpty();
@@ -65,7 +88,6 @@ public class CircularBufferTest {
     @Test
     public void เมื่อสร้างbufferแล้วต้องว่าง() {
         //Arrange
-        CircularBuffer buffer = new CircularBuffer();
         //Act
         boolean actual = buffer.isEmpty();
         //Assert

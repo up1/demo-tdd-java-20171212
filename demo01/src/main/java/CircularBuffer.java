@@ -1,3 +1,5 @@
+import java.nio.BufferOverflowException;
+
 public class CircularBuffer {
 
     private String[] buffer = new String[5];
@@ -14,5 +16,9 @@ public class CircularBuffer {
 
     public String read() {
         return buffer[readPointer++];
+    }
+
+    public void xxx() {
+        throw new RuntimeException();
     }
 }
