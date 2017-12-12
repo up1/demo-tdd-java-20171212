@@ -1,0 +1,20 @@
+-  request:
+      method: GET
+      url: /v1/user/1
+
+   response:
+      status: 200
+      headers:
+         content-type: application/json
+      file: user01.json
+
+-  request:
+      method: GET
+      url: /v1/user/2
+
+   response:
+      status: 200
+      latency: 5000
+      headers:
+         content-type: application/json
+      file: user01.json
