@@ -2,3 +2,5 @@
 
 * CircurlarBuffer
 * Range
+* Dependency Injection
+* SOLID
